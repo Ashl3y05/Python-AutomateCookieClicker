@@ -13,6 +13,7 @@ def buy_upgrades():
     for num in range(items,0,-1):
         purchasable = driver.find_element(By.ID, value=f"product{num-1}")
         try:
+            driver.execute_script("arguments[0].scrollIntoView();", purchasable)
             purchasable.click()
         except selenium.common.exceptions.ElementNotInteractableException:
             pass
